@@ -9,6 +9,13 @@ const randomNumber = () => {
 
 function HomePage() {
   const hobbyList = useSelector(state => state.hobby.list);
+  const activeId = useSelector(state => state.hobby.activeId);
+
+  // const hobbyState = useSelector(state => ({
+  //   list: state.hobby.list,
+  //   activeId: state.hobby.activeId
+  // }))
+
   const dispatch = useDispatch();
   const newId = randomNumber()
   const handleAddHobbyList = () => {
@@ -22,12 +29,18 @@ function HomePage() {
     const action = addNewHobby(newHobby);
     dispatch(action);
   }
+  const handleHobbyClick = () => {
+
+  }
   return (
     <div className="home-page">
       <h1>Redux</h1>
 
       <button onClick={handleAddHobbyList}>Random hobby</button>
-      <HobbyList hobbyList={hobbyList}></HobbyList>
+      <HobbyList 
+      hobbyList={hobbyList} 
+      activeId={activeId}
+      onHubbyClick={handleHobbyClick}></HobbyList>
     </div>
   )
 }

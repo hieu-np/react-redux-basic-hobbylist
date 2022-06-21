@@ -3,10 +3,14 @@ import PropTypes from 'prop-types'
 
 HobbyList.propTypes = {
   HobbyList: PropTypes.array,
+  activeId: PropTypes.number,
+  onHobbyClick: PropTypes.func
 }
 
 HobbyList.defaultProps = {
-  HobbyList: []
+  HobbyList: [],
+  active: null,
+  onHobbyClick: null
 }
 
 
